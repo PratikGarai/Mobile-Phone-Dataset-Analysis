@@ -1,0 +1,52 @@
+html { 
+  background: url("/media/images/wall.png") no-repeat center center fixed; 
+  background-size: cover;
+}
+	
+a:link{
+  color : white;
+}
+a:visited{
+  color : white;
+}
+a:hover{
+  color : white;
+}
+a:active{
+  color : white;
+}
+.opener {
+	font-size : 20px;
+	font-family:Times New Roman;
+	color : white;
+	border-radius : 4px;
+}
+.listed {
+	font-size : 16px;
+	font-family: Helvetica;
+	color : black;
+	border-radius : 4px;
+	padding : 2px;
+}
+#head1{
+	background-color: #ba042e;
+	border: 2px solid;
+	border-radius : 4px;
+}
+#drops1{
+	background-color: rgba(153, 6, 227,1);
+}
+#drops2{
+	background-color: rgba(0, 220, 0, 1);
+}
+#drops3{
+	background-color: rgba(0,128 ,255 ,1);
+}
+.upb{
+	border : None;
+	border-radius : 20px;
+	position : fixed;
+	bottom : 20px;
+	right : 20px;
+}
+

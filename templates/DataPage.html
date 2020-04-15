@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Database contents</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>	
+		<link rel = "stylesheet" type="text/css" href  = "/media/css/menu.css"></link>
+		<link rel = "stylesheet" type="text/css" href  = "/media/css/DataPage.css"></link>
+		<script type="text/javascript" src = "/media/js/menu.js"></script>
+	</head>
+	<body>
+		{% include 'menu_template.html' %}
+		<br><br><br><br><br><br>
+		<h1>{{ heading }}</h1>
+		<hr>
+		<div class = "wrapper">
+			<!-- database contents in the form of a table -->
+		<table>
+			<thead>
+				<tr>
+					{% for i in colname %}
+					<td> {{ i }} </td>
+					{% endfor %}
+				</tr>
+			</thead>
+			{% for i in qset %}
+			<tr>
+				{% for field, value in i.fields.items %}
+				<td>{{ value }}</td>
+				{% endfor %}
+			</tr>
+			{% endfor %}
+		</table>
+		<br>
+		</div>
+		<hr>
+		<br>
+	</body>
+</html>

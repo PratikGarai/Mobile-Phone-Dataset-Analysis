@@ -1,0 +1,78 @@
+<!DOCTYPE html>  
+<html lang="en">  
+	<head>  
+	<style>
+		html { 
+		  background: url("/media/wall.png") no-repeat center center fixed; 
+		  background-size: cover;
+		}
+	</style>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<link rel = "stylesheet" type="text/css" href  = "/media/css/menu.css"></link>
+	<script type="text/javascript" src = "/media/js/menu.js"></script>
+    <meta charset="UTF-8">  
+    <title>{{ name }}</title>  
+    <style>
+		table, th, td {
+				border : 1px solid white;
+				background-color : rgba(0,0,0,0.6);
+				color : white;
+			}
+
+	.Row 	{
+    		overflow: hidden;
+    		font-size: 15px;
+		}
+	.Col    {
+    		border-bottom: 5px solid #eee;
+		padding : 10px;
+		}
+	.btn 	{
+		background-color: rgb(255,0,0);
+                color: white;
+		padding: 8px 20px;
+  		text-align: center;
+		border-radius : 8px;
+		}
+	.help 	{
+		padding: 2px 3px;
+		font-size: 10px;
+		}
+	.mainbody {
+		background-color : rgba(0,0,0,0.55);
+		color : white;
+	}
+	    </style>
+</head>  
+<body>  
+	{% include 'menu_template.html' %}
+	<br><br>
+	<br><br>
+	<br><br>
+	<h1>{{ name }}</h1>
+	<div class="help">*{{ help }}</div>
+	<hr>
+	<form method="POST" class="post-form">
+		<div class="mainbody">
+        	{% csrf_token %}
+		<table>
+       	 	{% for field in form %}
+			<tr class = "Row">
+				<td class="Col Col1">
+				{{ field.label_tag }}<br>
+				<div class="help">
+					{{ field.help_text }}
+				</div>
+    				</td>
+				<td class="Col Col2">
+					{{field}}
+				<td>
+			</tr>
+		{% endfor %}
+		</table>
+	</div>
+	<!-- {{ form.as_table }} -->
+	<input type="submit", value = "Submit",  class="btn"></input>
+</form>
+</body> 
+</html> 
