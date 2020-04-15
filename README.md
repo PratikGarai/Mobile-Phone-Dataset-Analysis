@@ -20,3 +20,9 @@ How to run the server:
 
 Important:
 - Internet connection is a must for the program to run properly or the menus won't work.
+
+# Tasks Left:
+[ ] Fill in data in the fitst page
+[ ] Make the functions for graphs
+[ ] Create a better redirect/wait page or remove it completely
+[ ] Final visual design choices
