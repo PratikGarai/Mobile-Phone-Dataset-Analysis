@@ -1,0 +1,35 @@
+h1 span{
+	background-color : rgba(255,255,255,0.8);
+	border : 2px solid white;
+	border-radius : 3px;
+	color : black;
+}		
+table, th, td {
+	border : 1px solid white;
+	background-color : rgba(0,0,0,0.6);
+	color : white;
+}
+.Row 	{
+	overflow: hidden;
+    	font-size: 15px;
+}
+.Col    {
+   	border-bottom: 5px solid #eee;
+	padding : 10px;
+}
+.btn 	{
+	background-color: rgb(255,0,0);
+        color: white;
+	padding: 8px 20px;
+  	text-align: center;
+	border-radius : 8px;
+}
+.help 	{
+	padding: 2px 3px;
+	font-size: 10px;
+}
+.mainbody {
+	background-color : rgba(0,0,0,0.55);
+	color : white;
+}
+
