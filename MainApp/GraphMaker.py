@@ -15,6 +15,7 @@ os.environ['DJANGO_SETTINGS_MODULE']='Proj1.settings'
 
 from MainApp.models import Phone
 
+os.chdir(os.path.join(PROJECT_DIR,'media','html'))
 
 def make(n):
     if n==1:

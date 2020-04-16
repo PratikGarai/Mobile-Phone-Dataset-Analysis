@@ -2,10 +2,9 @@
 <html>
 	<head>
 		<title>Database contents</title>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>	
 		<link rel = "stylesheet" type="text/css" href  = "/media/css/menu.css"></link>
 		<link rel = "stylesheet" type="text/css" href  = "/media/css/DataPage.css"></link>
-		<script type="text/javascript" src = "/media/js/menu.js"></script>
+		<script type="text/javascript" src = "/media/js/jquery.tablesorter.js"></script>
 	</head>
 	<body>
 		{% include 'menu_template.html' %}
@@ -14,14 +13,15 @@
 		<hr>
 		<div class = "wrapper">
 			<!-- database contents in the form of a table -->
-		<table>
+		<table id = "myTable" class = "tablesorter">
 			<thead>
 				<tr>
 					{% for i in colname %}
-					<td> {{ i }} </td>
+					<th> {{ i }} </th>
 					{% endfor %}
 				</tr>
 			</thead>
+			<tbody>
 			{% for i in qset %}
 			<tr>
 				{% for field, value in i.fields.items %}
@@ -29,6 +29,7 @@
 				{% endfor %}
 			</tr>
 			{% endfor %}
+			</tbody>
 		</table>
 		<br>
 		</div>

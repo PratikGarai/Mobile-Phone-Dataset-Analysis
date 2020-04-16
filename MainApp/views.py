@@ -14,6 +14,7 @@ from MainApp.forms import Filter_Form1
 from MainApp.forms import Graph_Form 
 from django.shortcuts import redirect
 from django.core import serializers
+import os
 
 #column names
 maincol = ["Name","Brand","Model","Battery","Screen Size (in inches)","Touchscreen","Resolution width","Resolution height","Processor Cores","RAM (in MB)","Storage(in GB)","Rear Camera","Front Camera","OS","Wi-Fi","Bluetooth","GPS","SIMs","3G","4G-LTE","Price (in Rs.)"]
@@ -30,27 +31,27 @@ def inserter(i):
 
 def reseter(i):
     p1 = Phone.objects.create(
-            Name = i[1], 
-            Brand = i[2],
-            Model = i[3],
-            Battery = i[4],
-            Screen = i[5],
-            Touchscreen = i[6],
-            Resolution_x = i[7],
-            Resolution_y = i[8],
-            Processor_Cores = i[9],
-            RAM = i[10],
-            Storage = i[11],
-            Rear_Camera = i[12],
-            Front_Camera = i[13],
-            OS = i[14],
-            Wi_Fi = i[15],
-            Bluetooth = i[16],
-            GPS = i[17],
-            SIMs = i[18],
-            H_3G = i[19],
-            LTE_4G = i[20],
-            Price =i[21] )
+            Name = i[0], 
+            Brand = i[1],
+            Model = i[2],
+            Battery = i[3],
+            Screen = i[4],
+            Touchscreen = i[5],
+            Resolution_x = i[6],
+            Resolution_y = i[7],
+            Processor_Cores = i[8],
+            RAM = i[9],
+            Storage = i[10],
+            Rear_Camera = i[11],
+            Front_Camera = i[12],
+            OS = i[13],
+            Wi_Fi = i[14],
+            Bluetooth = i[15],
+            GPS = i[16],
+            SIMs = i[17],
+            H_3G = i[18],
+            LTE_4G = i[19],
+            Price =i[20] )
     p1.save()
 
 
@@ -90,10 +91,13 @@ def reset_data(request):
     Phone.objects.all().delete()
     Filter.objects.all().delete()
     FilterPhone.objects.all().delete() 
+    PROJECT_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__),'..','..'))
+    os.chdir(os.path.join(PROJECT_DIR,'media','data'))
     data = pd.read_csv('ndtv_data_final.csv')
     for row in range(len(data)):
         i = list(data.iloc[row])
         reseter(i)
+    os.chdir(PROJECT_DIR)
     return render(request,"AllPost.html",{})
 
 def main_page(request):
@@ -117,8 +121,7 @@ def graph(request):
         if ff.is_valid():
             maker = ff.cleaned_data['choice']
             gm.make(maker)
-            page = bs4.BeautifulSoup(open('graphplate.html'))
-            return render(request,"GraphPage.html",{'page':str(page.select('div')[0])})
+            return render(request,"GraphPage.html")
     else:
         pf = Graph_Form()
     return render(request,"Adder.html",{'form':pf, 'name':'Graph Selector','help':'*select the graph to visualize'})
