@@ -29,6 +29,7 @@ urlpatterns = [
     path('loader/',views.reset_data),
     path('',views.firstPage),
     path('phistory/',views.prediction_database),
+    path('processing/',views.loader),
 
 ]
 from . import settings

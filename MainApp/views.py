@@ -125,3 +125,6 @@ def graph(request):
     else:
         pf = Graph_Form()
     return render(request,"Adder.html",{'form':pf, 'name':'Graph Selector','help':'*select the graph to visualize'})
+
+def loader(request):
+    return render(request,"loader.html",{})

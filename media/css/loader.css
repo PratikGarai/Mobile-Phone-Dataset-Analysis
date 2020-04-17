@@ -1,0 +1,10 @@
+html { 
+  background: url("/media/images/wall_blur.png") no-repeat center center fixed; 
+  background-size: cover;
+}
+#loading{
+	background : rgba(0,0,0,0.7);
+	position :  absolute;
+	top : 40%;
+	left : 40%;
+}

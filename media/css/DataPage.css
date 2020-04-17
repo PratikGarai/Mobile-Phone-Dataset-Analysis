@@ -24,9 +24,6 @@ th {
 hr{
 	width : 100%;
 }
-.wrapper{
-	overflow : auto;
-}
 .tablesorter-default .header,
 .tablesorter-default .tablesorter-header {
 	background-image: url(data:image/gif;base64,R0lGODlhFQAJAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==);
@@ -53,5 +50,13 @@ hr{
 	cursor: default;
 	padding: 4px;
 }
-
-
+.wrapper{
+	overflow-y : scroll;
+	overflow-x : scroll;
+	max-height : 80vh;
+	max-width : 100vw;
+}
+table thead tr{
+	position : sticky;
+	top :0;
+}
