@@ -19,7 +19,7 @@ import os
 #column names
 maincol = ["Name","Brand","Model","Battery","Screen Size (in inches)","Touchscreen","Resolution width","Resolution height","Processor Cores","RAM (in MB)","Storage(in GB)","Rear Camera","Front Camera","OS","Wi-Fi","Bluetooth","GPS","SIMs","3G","4G-LTE","Price (in Rs.)"]
 qcol = ["Battery min","Battery max","Screen min","Screen max","Touchscreen","RWidth min","RWidth max","RHeight min","RHeight max","Cores","RAM min","RAM max","Storage min","Storage max","RCamera min","RCamera max","Fcamera min","FCamera max","OS","Wi-Fi","Bluetooth","GPS","SIM min","SIM max","3G","4G"]
-pcol = ["Battery","Screen Size (in inches)","Touchscreen","Resolution width","Resolution height","Processor Cores","RAM (in MB)","Storage (in GB)","Rear Camera","Front Camera","OS","Wi-Fi","Bluetooth","GPS","SIMs","3G","4G-LTE"]
+pcol = ["Battery","Screen Size (in inches)","Touchscreen","Resolution width","Resolution height","Processor Cores","RAM (in MB)","Storage (in GB)","Rear Camera","Front Camera","OS","Wi-Fi","Bluetooth","GPS","SIMs","3G","4G-LTE","Prediction(in Rs.)"]
 
 def firstPage(request):
     return redirect(main_page)

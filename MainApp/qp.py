@@ -1,14 +1,12 @@
 import os, sys
 
 PROJECT_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__),'..','..'))
-
 sys.path.append(PROJECT_DIR)
-
 import django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Proj1.settings")
 django.setup()
-
 os.environ['DJANGO_SETTINGS_MODULE']='Proj1.settings'
+
 from MainApp.models import FilterPhone
 from MainApp.models import Phone
 from MainApp.models import Filter
@@ -79,8 +77,6 @@ def queryProcessor(i):
     return qset
 
 def predictorFunc(i):
-    p1 = FilterPhone.objects.create(**i)
-    p1.save()
     l = []
     inp = []
     prediction = 0
@@ -140,9 +136,9 @@ def predictorFunc(i):
     l.append('Price')
     k = list(Phone.objects.all().values(*l))
     d = pd.DataFrame(k)
-    for i in d.columns:
-        if i in ['Touchscreen','LTE_4G','H_3G','Wi_Fi','GPS','Bluetooth']:
-            d[i] = d[i].apply(lambda x : 1 if x=='Yes' else 0)
+    for i1 in d.columns:
+        if i1 in ['Touchscreen','LTE_4G','H_3G','Wi_Fi','GPS','Bluetooth']:
+            d[i1] = d[i1].apply(lambda x : 1 if x=='Yes' else 0)
     if 'OS' in d.columns:
         d['OS'] = d['OS'].apply(OS_convertor)
     s = StandardScaler()
@@ -152,8 +148,11 @@ def predictorFunc(i):
     model.fit(s.fit_transform(d.drop(['Price'],axis=1)),t.fit_transform(np.array([d['Price']]).transpose()))
     inp = np.array(inp).reshape(1,-1)
     prediction  = t.inverse_transform(model.predict(s.transform(inp)))
-    prediction = int(prediction[0]-prediction[0]%500)
-    return "Rs. "+str(prediction)+" - "+str(prediction+500)
+    prediction = int(prediction[0]-prediction[0]%100)
+    i['Predicted'] = prediction
+    p1 = FilterPhone.objects.create(**i)
+    p1.save()
+    return prediction
 
 def OS_convertor(x):
     if x == 'iOS':

@@ -12,7 +12,7 @@ class Phone_Form(forms.ModelForm):
 class Filter_Form(forms.ModelForm):
     class Meta:
         model = FilterPhone
-        fields = "__all__"
+        exclude = ["Predicted"]
 
 class Filter_Form1(forms.ModelForm):
     class Meta:

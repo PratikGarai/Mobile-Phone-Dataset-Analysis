@@ -93,6 +93,7 @@ class FilterPhone(models.Model):
     SIMs =  models.IntegerField(choices = simc)
     H_3G =  models.CharField(max_length=10,choices=ync)
     LTE_4G =  models.CharField(max_length=10,choices=ync)
+    Predicted = models.IntegerField(blank = True)
 
 class Filter(models.Model):
     simc = [
