@@ -1,5 +1,6 @@
 $(document).ready(function(){	
 	var actives = 0;
+	var menus = [];
 	$('.menu').mouseenter(function(){
 	var present = $(this).next().next().next();
 	if(JSON.stringify(actives) === JSON.stringify(present)){
@@ -11,14 +12,14 @@ $(document).ready(function(){
 		actives.slideUp();
 	}
 	actives = $(this.children[0]).next().next();
-    	actives.slideDown();
+    	actives.show();
     	return false;
 	}
 	});
 
 
 	$('.menu').mouseleave(function(){
-	actives.slideUp();
+	actives.hide();
 	actives = 0;
 	return false;
 	});
