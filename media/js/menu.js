@@ -1,6 +1,5 @@
 $(document).ready(function(){	
 	var actives = 0;
-	var menus = [];
 	$('.menu').mouseenter(function(){
 	var present = $(this).next().next().next();
 	if(JSON.stringify(actives) === JSON.stringify(present)){
