@@ -10,3 +10,7 @@ h1 span{
 	border-radius : 3px;
 	color : black;
 }
+#graph{
+	max-height : 100%;
+	max-width : 100%;
+}

@@ -3,7 +3,6 @@ from MainApp.forms import Phone_Form
 import pandas as pd
 from MainApp.models import Phone
 from django.http import HttpResponse
-import bs4
 from MainApp import GraphMaker as gm
 from MainApp.forms import Filter_Form
 from MainApp.models import FilterPhone

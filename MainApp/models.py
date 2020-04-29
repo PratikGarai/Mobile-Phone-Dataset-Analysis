@@ -152,6 +152,8 @@ class Filter(models.Model):
 class GraphModel(models.Model):
     ch = [
             (1,'Sample Graph 1'),
-            (2,'Sample Graph 2')
+            (2,'Sample Graph 2'),
+            (3,'Sample Graph 3'),
+            (4,'Sample Graph 4')
             ]
     choice  = models.IntegerField(choices = ch)
