@@ -19,7 +19,6 @@ import numpy as np
 def queryProcessor(i):
     p1 = Filter.objects.create(**i)
     p1.save()
-
     qset = Phone.objects.all()
     if i['Battery_1']!=None and i['Battery_1']!='':
         qset = qset.filter(Battery__gte = i['Battery_1'])
@@ -73,7 +72,6 @@ def queryProcessor(i):
         qset = qset.filter(H_3G = i['H_3G'])
     if i['LTE_4G']!='':
         qset = qset.filter(LTE_4G = i['LTE_4G'])
-
     return qset
 
 def predictorFunc(i):
@@ -175,3 +173,11 @@ def YesNo(x):
         return 1
     else:
         return 0
+
+def stateSaver():
+    fields = ["Name","Brand","Model","Battery","Screen","Touchscreen","Resolution_x","Resolution_y","Processor_Cores","RAM","Storage","Rear_Camera","Front_Camera","OS","Wi_Fi","Bluetooth","GPS","SIMs","H_3G","LTE_4G","Price"]
+    k = list(Phone.objects.all().values(*fields))
+    d = pd.DataFrame(k)
+    os.chdir(os.path.join(PROJECT_DIR,'media','data'))
+    d.to_csv('local.csv')
+    os.chdir(PROJECT_DIR)

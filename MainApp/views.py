@@ -59,7 +59,7 @@ def phone_form(request):
         pf = Phone_Form(request.POST)
         if pf.is_valid():
             inserter(pf.cleaned_data)
-            return render(request,"AllPost.html",{})
+            return render(request,"home_page.html",{})
     else:
         pf = Phone_Form()
     return render(request,"Adder.html",{'form':pf, 'name':'Add a Phone', 'help':'*all fields are compulsory'})
@@ -92,6 +92,7 @@ def reset_data(request):
     FilterPhone.objects.all().delete() 
     PROJECT_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__),'..','..'))
     os.chdir(os.path.join(PROJECT_DIR,'media','data'))
+    os.remove('local.csv')
     data = pd.read_csv('ndtv_data_final.csv')
     for row in range(len(data)):
         i = list(data.iloc[row])
