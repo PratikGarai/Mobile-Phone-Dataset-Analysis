@@ -19,16 +19,20 @@ os.chdir(os.path.join(PROJECT_DIR,'media','html'))
 
 
 def make(n):
+
     if n==1:
         data = [go.Scatter(x=[1,2,3],y=[3,1,6])]
+
     elif n==2:
         data = [go.Scatter(x=[1,2,3],y=[1,2,20])]
+
     elif n==3:
         fig=go.Figure()
         for x in list(df['OS'].unique()):
             fig.add_trace(go.Box(y=df["Price"][df["OS"]==x],name=x))
         fig.update_layout(title_text="Mean Price of each OS",)
         data=fig
+
     elif n==4:
         data=px.scatter(df,x="RAM",y="Price",color="OS",title="Price vs RAM for each OS")
     

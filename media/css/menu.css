@@ -3,16 +3,16 @@ html {
   background-size: cover;
 }
 	
-a:link{
+.nav a:link{
   color : white;
 }
-a:visited{
+.nav a:visited{
   color : white;
 }
-a:hover{
+.nav a:hover{
   color : white;
 }
-a:active{
+.nav a:active{
   color : white;
 }
 .opener {
@@ -49,4 +49,3 @@ a:active{
 	bottom : 20px;
 	right : 20px;
 }
-
