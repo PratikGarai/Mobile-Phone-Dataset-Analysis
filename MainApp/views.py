@@ -128,3 +128,6 @@ def graph(request):
 
 def loader(request):
     return render(request,"loader.html",{})
+
+def credits(request):
+    return render(request,"credits.html",{})

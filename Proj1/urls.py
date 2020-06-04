@@ -30,6 +30,7 @@ urlpatterns = [
     path('',views.firstPage),
     path('phistory/',views.prediction_database),
     path('processing/',views.loader),
+    path('credits/',views.credits),
 
 ]
 from . import settings
