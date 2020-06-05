@@ -14,6 +14,7 @@ from MainApp.forms import Graph_Form
 from django.shortcuts import redirect
 from django.core import serializers
 import os
+import mimetypes
 
 #column names
 maincol = ["Name","Brand","Model","Battery","Screen Size (in inches)","Touchscreen","Resolution width","Resolution height","Processor Cores","RAM (in MB)","Storage(in GB)","Rear Camera","Front Camera","OS","Wi-Fi","Bluetooth","GPS","SIMs","3G","4G-LTE","Price (in Rs.)"]
@@ -131,3 +132,13 @@ def loader(request):
 
 def credits(request):
     return render(request,"credits.html",{})
+
+def downloader(request):
+    fl_path = '/file/path'
+    filename = 'downloaded_file_name.extension'
+
+    fl = open(fl_path, 'r')
+    mime_type, _ = mimetypes.guess_type(fl_path)
+    response = HttpResponse(fl, content_type=mime_type)
+    response['Content-Disposition'] = "attachment; filename=%s" % filename
+    return response

@@ -6,19 +6,19 @@ import os, sys
 import pandas as pd
 PROJECT_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__),'..','..'))
 sys.path.append(PROJECT_DIR)
+
 import django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Proj1.settings")
 django.setup()
 os.environ['DJANGO_SETTINGS_MODULE']='Proj1.settings'
-from MainApp.qp import stateSaver as state
-
-state()
-os.chdir(os.path.join(PROJECT_DIR,'media','data'))
-df=pd.read_csv("local.csv")
-os.chdir(os.path.join(PROJECT_DIR,'media','html'))
-
 
 def make(n):
+    from MainApp.qp import stateSaver as state
+
+    state()
+    os.chdir(os.path.join(PROJECT_DIR,'media','data'))
+    df=pd.read_csv("local.csv")
+    os.chdir(os.path.join(PROJECT_DIR,'media','html'))
 
     if n==1:
         data = [go.Scatter(x=[1,2,3],y=[3,1,6])]
@@ -38,3 +38,5 @@ def make(n):
     
     pyo.plot(data,filename='graphplate.html',auto_open=False)
     os.chdir(PROJECT_DIR)
+
+    return 0

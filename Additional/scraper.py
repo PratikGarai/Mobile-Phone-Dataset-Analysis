@@ -1,14 +1,10 @@
 URL = 'https://gadgets.ndtv.com/mobiles/best-phones-1'
 
-
-
 from bs4 import BeautifulSoup
 import requests
 
 page  = requests.get(URL)
 html = BeautifulSoup(page.content,'html.parser')
-
-
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -23,7 +19,6 @@ while(True):
         break
     num.click()
 links  = driver.find_elements_by_class_name('rvw-title')
-
 
 import pandas as pd
 status = 200
@@ -72,9 +67,6 @@ def getter(iter1):
 
 for i in links:
     getter(i.get_attribute("href"))
-
-
-
 
 unified_data = []
 c = 0
