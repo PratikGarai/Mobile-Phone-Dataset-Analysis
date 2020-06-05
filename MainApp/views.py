@@ -93,13 +93,16 @@ def reset_data(request):
     FilterPhone.objects.all().delete() 
     PROJECT_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__),'..','..'))
     os.chdir(os.path.join(PROJECT_DIR,'media','data'))
-    os.remove('local.csv')
+    try:
+        os.remove('local.csv')
+    except:
+        pass
     data = pd.read_csv('ndtv_data_final.csv')
     for row in range(len(data)):
         i = list(data.iloc[row])
         reseter(i)
     os.chdir(PROJECT_DIR)
-    return render(request,"AllPost.html",{})
+    return render(request,"home_page.html",{})
 
 def main_page(request):
     return render(request,"home_page.html",{})
