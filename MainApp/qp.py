@@ -141,7 +141,6 @@ def predictorFunc(i):
         d['OS'] = d['OS'].apply(OS_convertor)
     s = StandardScaler()
     t = StandardScaler()
-    # model = SVR()
     model = RandomForestRegressor(n_jobs = 4, n_estimators = 100)
     model.fit(s.fit_transform(d.drop(['Price'],axis=1)),t.fit_transform(np.array([d['Price']]).transpose()))
     inp = np.array(inp).reshape(1,-1)

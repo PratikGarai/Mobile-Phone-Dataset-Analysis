@@ -151,9 +151,10 @@ class Filter(models.Model):
 
 class GraphModel(models.Model):
     ch = [
-            (1,'Sample Graph 1'),
-            (2,'Sample Graph 2'),
-            (3,'Sample Graph 3'),
-            (4,'Sample Graph 4')
+            (1,'Processor Core vs. Price Bar plot'),
+            (2,'Screen size vs Resolution'),
+            (3,'Mean price of ech OS'),
+            (4,'Price vs RAM for each OS'),
+            (5,'Internal Storage vs Processor Core')
             ]
     choice  = models.IntegerField(choices = ch)
