@@ -20,3 +20,5 @@ How to run the server:
 
 Important:
 - Internet connection is a must for the program to run properly or the menus won't work.
+
+This WebApp operates on an extracted mobile phone specs dataset that was scraped from ndtvgadgets website(script added). The users can add data more, query the existing data, viualise graphs and also predict the price of a phone by giving its specifications.
