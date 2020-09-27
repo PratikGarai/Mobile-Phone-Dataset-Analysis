@@ -1,4 +1,4 @@
-# DBMS_J_COMP
+# Mobile Phone Dataset Analyzer
 
 Made using Python by :
 Ritika Sarkar
